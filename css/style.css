@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(105, 90, 133);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color :white;
+    position: relative;
+    
+}
+button{
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color:rgb(140, 151, 199) ;
+    color: white;
+    cursor: pointer;
+    
+}
+#thePlayerChoice,#theCpuChoice{
+    background-color: rgb(162, 146, 190);
+    margin: 10px;
+    border-radius: 2px;
+    width: 260px;
+    align-items: center;
+    min-height: 110px;
+    display: flex;  
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.outro{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 400px;
+   height: 400px;
+   justify-content: space-between;
+}
+#playAgin{
+    position:absolute;
+    bottom: 100;
+}
