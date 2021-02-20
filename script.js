@@ -41,17 +41,14 @@ function clck (){
 
   }
   rsltImg.setAttribute("src","imgs/"+result+".png");
-  // removing the player options 
-  document.getElementById("playerOptions").style.visibility = "hidden";
-  cpuImg.style.visibility = "visible";
-  pImg.style.visibility = "visible";
-  rsltImg.style.visibility = "visible";
+  // fading the result
+  outro.setAttribute("class","outro");
+  outro.classList.add("fadeIn");
 }
 //adding the player choice img
 const pImg= document.createElement("img");
 const thePlayerChoice = document.getElementById("thePlayerChoice");
 thePlayerChoice.appendChild(pImg);
-
 // adding the cpu img
 const cpuImg= document.createElement("img");
 const theCpuChoice = document.getElementById("theCpuChoice");
@@ -63,11 +60,9 @@ theResultSection.appendChild(rsltImg);
 // defining the function of play agian button
 const playAgian = document.getElementById("playAgain");
 playAgian.addEventListener("click",retry);
+//defining the reault
+const outro = document.querySelector(".outro");
 function retry(){
-    document.getElementById("playerOptions").style.visibility = "visible";
-    pImg.style.visibility = "hidden";
-    cpuImg.style.visibility = "hidden";
-    rsltImg.style.visibility = "hidden";
-   
-    
+  outro.setAttribute("class","outro");
+   outro.classList.add("fadeOut");
 }
