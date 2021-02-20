@@ -38,6 +38,23 @@ button{
    width: 400px;
    height: 400px;
    justify-content: space-between;
+   opacity: 1;
+   background-color: rgb(162, 146, 190) ;
+   border-radius: 20px;
+   position: fixed;
+   opacity: 0;
+   pointer-events: none;
+   
+
+}
+div.fadeIn{
+    opacity: 1;
+    pointer-events: all;
+    transition: 2s ease-in-out;
+}
+div.fadeOut{
+    opacity: 0;
+    pointer-events: none;
 }
 #playAgin{
     position:absolute;
