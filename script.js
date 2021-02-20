@@ -11,14 +11,18 @@ for(var i = 0 ; i<=2;i++){
 function clck (){
     //taking the player choice when clicking
   var  pchoice = this.innerHTML;
-  pImg.setAttribute("src","imgs/"+pchoice+".png");
   // the cpu choice 
   var rng = Math.floor(Math.random()*3);
   var cpuchoice = choiceArr[rng];
-  cpuImg.setAttribute("src","imgs/"+cpuchoice+".png");
+  // applying the corrisponding img after 2s
+  setTimeout(changImg,2000);
+  function changImg (){
+    cpuImg.setAttribute("src","imgs/"+cpuchoice+".png");
+    pImg.setAttribute("src","imgs/"+pchoice+".png");
+  }
   
   //comparing the inputs
-  var result = "the computer wins";
+  var result;
    //making the player and the cpu choices number to make the comparison fuctoin shorter 1 for rock 10 for paper 100 for scissors
    var a =1
    pchoice =="paper"?a=10:pchoice =="scissors"? a=100: a=1;
@@ -44,15 +48,32 @@ function clck (){
   // fading the result
   outro.setAttribute("class","outro");
   outro.classList.add("fadeIn");
+  // hands animation
+  pImg.style.animation ="pshaking 2s ";
+  cpuImg.style.animation= "cpushaking 2s" ; 
+  
+  
 }
+
+
 //adding the player choice img
 const pImg= document.createElement("img");
 const thePlayerChoice = document.getElementById("thePlayerChoice");
+pImg.setAttribute("src","imgs/rock.png");
+pImg.setAttribute("class","pImg");
 thePlayerChoice.appendChild(pImg);
 // adding the cpu img
 const cpuImg= document.createElement("img");
 const theCpuChoice = document.getElementById("theCpuChoice");
+cpuImg.setAttribute("src","imgs/rock.png");
 theCpuChoice.appendChild(cpuImg);
+cpuImg.setAttribute("class","cpuImg");
+pImg.addEventListener("animationend", delt);
+
+function delt(){
+  pImg.style.animation ="";
+  cpuImg.style.animation= "" ; 
+}
 // adding the result img
 const rsltImg= document.createElement("img");
 const theResultSection = document.getElementById("result");
@@ -65,4 +86,7 @@ const outro = document.querySelector(".outro");
 function retry(){
   outro.setAttribute("class","outro");
    outro.classList.add("fadeOut");
+   pImg.setAttribute("src","imgs/rock.png");
+   cpuImg.setAttribute("src","imgs/rock.png");
 }
+
