@@ -30,6 +30,7 @@ button{
     display: flex;  
     justify-content: space-between;
     border-radius: 10px;
+    flex-direction: column;
 }
 .outro{
    display: flex;
@@ -47,16 +48,74 @@ button{
    
 
 }
-div.fadeIn{
+.fadeIn{
     opacity: 1;
     pointer-events: all;
     transition: 2s ease-in-out;
+    transition-delay: 2.5s;
 }
-div.fadeOut{
+.fadeOut{
     opacity: 0;
     pointer-events: none;
 }
 #playAgin{
     position:absolute;
     bottom: 100;
+}
+.cpuImg{
+    transform: rotatey(180deg);
+    
+}
+.pImg{
+    transform: translatey(0);
+}
+.choises{
+    display: flex;
+}
+@keyframes pshaking {
+    0%{
+        transform: translatey(0);
+    }
+    15%{
+        transform: translatey(-50px);
+    }
+    30%{
+        transform: translate(0);
+    }
+    45%{
+        transform: translatey(-50px);
+    }
+    60%{
+        transform: translatey(0);
+    }
+    75%{
+        transform: translatey(-50px);
+    }
+    100%{
+        transform: translatey(0);
+    }
+   
+}
+@keyframes cpushaking{
+    0%{
+        transform:rotatey(180deg) translatey(0);
+    }
+    15%{
+        transform:rotatey(180deg) translatey(-50px);
+    }
+    30%{
+        transform:rotatey(180deg) translatey(0);
+    }
+    45%{
+        transform:rotatey(180deg) translatey(-50px);
+    }
+    60%{
+        transform:rotatey(180deg) translatey(0);
+    }
+    75%{
+        transform:rotatey(180deg) translatey(-50px);
+    }
+    100%{
+        transform:rotatey(180deg) translatey(0);
+    }
 }
