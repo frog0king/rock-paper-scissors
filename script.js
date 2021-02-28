@@ -33,10 +33,10 @@ function clck (){
   var result;
   //making the player and the cpu choices numbers to make the comparison fuctoin, theme independent
   var a =1
-  pchoice =="paper"?a=10:pchoice =="scissors"? a=100: a=1;
+  pchoice =="paper"?a=10:pchoice =="scissors"? a=100:pchoice =="rock"? a=1:
   pchoice =="wood"?a=10:pchoice =="fire"? a=100: a=1;
   var b =1
-  cpuchoice =="paper"?b=10:cpuchoice =="scissors"? b=100: b=1;
+  cpuchoice =="paper"?b=10:cpuchoice =="scissors"? b=100:cpuchoice =="rock"? b=1:
   cpuchoice =="wood"?b=10:cpuchoice =="fire"? b=100: b=1;
   //judeging the winner
   var compare = a-b;
