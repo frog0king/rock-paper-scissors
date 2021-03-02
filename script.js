@@ -67,7 +67,7 @@ function clck (){
     pScoreNum = document.querySelector(".pScoreNum");
     pScoreNum.innerHTML = pScore;
     cScoreNum.innerHTML = cScore;
-    if(round !==roundNum){
+    if(round <roundNum){
     roundElemnt.innerHTML=1+round;
     
   }
