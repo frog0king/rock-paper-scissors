@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     background-color: rgb(105, 90, 133);
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,7 +12,18 @@ body {
 }
 div{
     display: flex;
-    align-items: center;
+    align-items: center;    
+}
+.score{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.scoreBoard{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
 }
 button{
     margin: 10px;

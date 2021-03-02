@@ -16,7 +16,11 @@ function creatButtons(arr){
   }
 }
 creatButtons(choiceArr);
+var cScore = 0;
+var pScore = 0;
+var tScore = 0;
 function clck (){
+  changeTheme()
   //taking the player choice when clicking
   var  pchoice = this.innerHTML;
   // the cpu choice 
@@ -29,8 +33,6 @@ function clck (){
     pImg.setAttribute("src","imgs/"+pchoice+".png");
   }
   
-  //comparing the inputs
-  var result;
   //making the player and the cpu choices numbers to make the comparison fuctoin, theme independent
   var a =1
   pchoice =="paper"?a=10:pchoice =="scissors"? a=100:pchoice =="rock"? a=1:
@@ -38,28 +40,53 @@ function clck (){
   var b =1
   cpuchoice =="paper"?b=10:cpuchoice =="scissors"? b=100:cpuchoice =="rock"? b=1:
   cpuchoice =="wood"?b=10:cpuchoice =="fire"? b=100: b=1;
-  //judeging the winner
+  //counting the score
   var compare = a-b;
+  var round = 0;
   switch(compare){
     case 0 : 
-    result = "tieGame";
+    tScore++;
     break;
     case 99:
     case -90:
     case -9:
-    result = "you lose";
+    cScore++;
     break;
     default:
-    result = "you win";
+    pScore++;
     break;
   }
-  rsltImg.setAttribute("src","imgs/"+result+".png");
-  // fading the result
-  outro.setAttribute("class","outro");
-  outro.classList.add("fadeIn");
+  //counting the round and decciding whether the round end or not 
+  round = tScore + cScore + pScore;
+  var roundNum = document.querySelector(".numberOfRound").value;
+  //defining the score and updating it 
+  setTimeout(updatenumbers,2000);
+  function updatenumbers (){
+    roundElemnt = document.querySelector(".round");
+    cScoreNum = document.querySelector(".cScoreNum");
+    pScoreNum = document.querySelector(".pScoreNum");
+    pScoreNum.innerHTML = pScore;
+    cScoreNum.innerHTML = cScore;
+    if(round !==roundNum){
+    roundElemnt.innerHTML=1+round;
+    
+  }
+  }
+  
+
+  
+  // fading the result if the tital round is done 
+  var result = "tieGame";
+  if (round >=roundNum){
+    pScore>cScore? result ="you win":pScore<cScore?result = "you lose":result ="tieGame";
+    rsltImg.setAttribute("src","imgs/"+result+".png");
+    outro.setAttribute("class","outro");
+    outro.classList.add("fadeIn");
+  }
   // hands animation
   pImg.style.animation ="pshaking 2s ";
   cpuImg.style.animation= "cpushaking 2s" ; 
+
 }
 
 
@@ -94,6 +121,12 @@ function retry(){
   outro.setAttribute("class","outro");
   outro.classList.add("fadeOut");
   changeTheme();
+  cScore = 0;
+  pScore = 0;
+  tScore = 0;
+  pScoreNum.innerHTML = pScore;
+  cScoreNum.innerHTML = cScore;
+  roundElemnt.innerHTML=1
 }
 //open options buttn
 const optionBtn = document.getElementById("options-btn");
@@ -111,10 +144,6 @@ function saveFunction() {
   //changing the theme
   const backGroundcolor = document.querySelector("#backGroundColor").value;
   document.body.style.backgroundColor= backGroundcolor;
-  function removePo(){
-    const po = document.querySelector(".po");
-    po.remove();
-  }
   removePo();
   const theme = document.getElementById("theme");
   changeTheme();
@@ -131,4 +160,8 @@ function changeTheme(){
     cpuImg.setAttribute("src","imgs/rock.png");
     pImg.setAttribute("src","imgs/rock.png");
   }
+}
+function removePo(){
+  const po = document.querySelector(".po");
+  po.remove();
 }
