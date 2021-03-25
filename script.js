@@ -16,6 +16,7 @@ function creatButtons(arr){
   }
 }
 creatButtons(choiceArr);
+//zeroing the score
 var cScore = 0;
 var pScore = 0;
 var tScore = 0;
@@ -33,7 +34,7 @@ function clck (){
     pImg.setAttribute("src","imgs/"+pchoice+".png");
   }
   
-  //making the player and the cpu choices numbers to make the comparison fuctoin, theme independent
+  //making the player and the cpu choices numbers to make the comparison fuctoin theme independent
   var a =1
   pchoice =="paper"?a=10:pchoice =="scissors"? a=100:pchoice =="rock"? a=1:
   pchoice =="wood"?a=10:pchoice =="fire"? a=100: a=1;
@@ -75,7 +76,7 @@ function clck (){
   
 
   
-  // fading the result if the tital round is done 
+  // fading the result if the total round is done 
   var result = "tieGame";
   if (round >=roundNum){
     pScore>cScore? result ="you win":pScore<cScore?result = "you lose":result ="tieGame";
